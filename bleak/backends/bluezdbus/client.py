@@ -589,7 +589,7 @@ class BleakClientBlueZDBus(BaseBleakClient):
             logger.debug(f"Waiting for ServicesResolved ({self._device_path})")
             self._services_resolved_event = asyncio.Event()
             try:
-                await asyncio.wait_for(self._services_resolved_event.wait(), 5)
+                await asyncio.wait_for(self._services_resolved_event.wait(), 20)
             finally:
                 self._services_resolved_event = None
 
